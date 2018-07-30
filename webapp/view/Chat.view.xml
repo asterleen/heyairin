@@ -1,0 +1,18 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="HeyAirin.controller.Chat">
+	<App>
+		<pages>
+			<Page title="Title">
+			<content>
+			    <List noDataText="{i18n>noMessages}" id="chatMessages">
+			    </List>
+			    <Toolbar width="100%" id="__toolbar1">
+			        <content>
+			            <Input width="100%" id="__input0"/>
+			            <Button text="Button" width="100px" id="__button1"/>
+			        </content>
+			    </Toolbar>
+			</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,27 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml"
+		  xmlns:mvc="sap.ui.core.mvc"
+		  xmlns="sap.m"
+		  xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+		  controllerName="HeyAirin.controller.Launcher"
+	displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<TileContainer editable="false" allowAdd="false">
+						<tiles>
+							<StandardTile title="{i18n>loginReadOnly}" info="{i18n>loginReadOnlyDescription}" icon="sap-icon://log" id="loginReadOnly"
+								data:action="readonly" press="chooseLoginMode"/>
+								
+							<StandardTile title="{i18n>loginWithFacebook}" info="{i18n>loginWithFacebookDescription}" icon="sap-icon://log" id="loginFacebook"
+								data:action="auth-facebook" press="chooseLoginMode"/>
+								
+							<StandardTile title="{i18n>loginWithVK}" info="{i18n>loginWithVKDescription}" icon="sap-icon://log" id="loginVK" data:action="auth-vk"
+								press="chooseLoginMode"/>
+						</tiles>
+					</TileContainer>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
