@@ -9,6 +9,7 @@
 			        <content>
 			            <Input width="100%" id="__input0"/>
 			            <Button text="Button" width="100px" id="__button1"/>
+			            
 			        </content>
 			    </Toolbar>
 			</content>

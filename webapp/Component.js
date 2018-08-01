@@ -17,6 +17,10 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function() {
+			
+			// Enable debug logging
+			jQuery.sap.log.setLevel(jQuery.sap.log.LogLevel.ALL);
+			
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 			

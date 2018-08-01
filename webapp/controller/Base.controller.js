@@ -64,7 +64,7 @@ sap.ui.define([
 					this.Logger.fatal(message);
 					break;
 				default:
-					this.Logger.debug(message);
+					this.Logger.info(message);
 					break;
 			}
 		}
