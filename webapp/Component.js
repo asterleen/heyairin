@@ -19,9 +19,14 @@ sap.ui.define([
 		init: function() {
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
+			
+			// this will store the system state
+			this.setModel(models.createLocalModel(), "local");
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+			
+			this.getRouter().initialize();
 		}
 	});
 });

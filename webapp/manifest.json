@@ -14,7 +14,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -30,16 +29,11 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
-
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "HeyAirin.view.Launcher",
+			"viewName": "HeyAirin.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -69,6 +63,48 @@
 		"resources": {
 			"css": [{
 				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"targets": {
+				"Launcher": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Launcher",
+					"viewLevel": 1
+				},
+				"Chat": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Chat",
+					"viewLevel": 2
+				}
+			},
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "HeyAirin.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": "notFound"
+				},
+				"async": true
+			},
+			"routes": [{
+				"name": "Launcher",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": "Launcher"
+			}, {
+				"name": "Chat",
+				"pattern": "Chat",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Chat"]
 			}]
 		}
 	}

@@ -6,7 +6,8 @@ sap.ui.define([
 ], function(Controller, JSONModel, MessageToast, MessageBox) {
 	"use strict";
 
-	return Controller.extend("metinv.table.controller.Base", {
+	return Controller.extend("HeyAirin.controller.Base", {
+		
 		MT: MessageToast,
 		JM: JSONModel,
 		MB: MessageBox,

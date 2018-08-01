@@ -5,7 +5,7 @@ sap.ui.define([
 
 	return Controller.extend("HeyAirin.controller.Chat", {
 		
-		_oSocket : null
+		_oSocket : null // WebSocket
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
