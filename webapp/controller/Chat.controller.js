@@ -48,8 +48,15 @@ sap.ui.define([
 			}
 		},
 		
+		sendMessage: function (message) {
+			this.log("Send: " + message);
+			if (this._oSocket) {
+				this._oSocket.send(message);
+			}
+		},
+		
 		onSocketMessage: function (oEvent) {
-			this.log("chat socketMessage");
+			this.log("Recv: " + oEvent.data);
 			this.processCommand(oEvent.data);
 		},
 		
@@ -59,35 +66,36 @@ sap.ui.define([
 		},
 		
 		processCommand: function (commandline) {
-			this.log(commandline);
+			var commands = commandline.split(" "),
+				fulltext = commandline.substr(commandline.indexOf("#") + 1),
+				mainCmd = commands[0];
+			
+			switch (mainCmd) {
+				case "INIT":
+					this.sendMessage("LEVEL 3");
+					this.sendMessage("CONNECT READONLY #HeyAirin Test App");
+					break;
+					
+				case "AUTH":
+					switch (commands[1]) {
+						case "OK":
+						case "READONLY":
+							this.sendMessage("LOG 20");
+							break;
+							
+						case "FAIL":
+						case "BANNED":
+							// TODO: Process this
+							break;
+					}
+					break;
+					
+				case "NUS":
+					this.sendMessage("SUS");
+					break;
+			}
 		}
-
-		/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf HeyAirin.view.Chat
-		 */
-		//	onBeforeRendering: function() {
-		//
-		//	},
-
-		/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf HeyAirin.view.Chat
-		 */
-		//	onAfterRendering: function() {
-		//
-		//	},
-
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf HeyAirin.view.Chat
-		 */
-		//	onExit: function() {
-		//
-		//	}
-
+		
 	});
 
 });
