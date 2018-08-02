@@ -12,9 +12,14 @@ sap.ui.define([
 		JM: JSONModel,
 		MB: MessageBox,
 		Logger: jQuery.sap.log,
-		
+		Storage: window.localStorage,
+
 		getRouter: function() {
 			return sap.ui.core.UIComponent.getRouterFor(this);
+		},
+		
+		navTo: function(sView) {
+			this.getRouter().navTo(sView, true);
 		},
 
 		navTop: function(evt) {
@@ -30,6 +35,17 @@ sap.ui.define([
 			} else {
 				this.navTop();
 			}
+		},
+		
+		showError: function(sText, sTitle, fOnClose) {
+			this.MB.show(
+		      sText, {
+		          icon: sap.m.MessageBox.Icon.ERROR,
+		          title: sTitle || "HeyAirin Error",
+		          actions: [sap.m.MessageBox.Action.OK],
+		          onClose: fOnClose
+		      }
+		    );
 		},
 
 		/**

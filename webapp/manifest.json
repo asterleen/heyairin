@@ -89,7 +89,7 @@
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": "notFound"
+					"target": "Launcher"
 				},
 				"async": true
 			},

@@ -1,7 +1,7 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="HeyAirin.controller.Chat">
 	<App>
 		<pages>
-			<Page title="{i18n>Chat}" navButtonPress="navBack" showNavButton="true" >
+			<Page title="{i18n>Chat}" navButtonPress="onNavBack" showNavButton="true" >
 			<content>
 			    <List noDataText="{i18n>noMessages}" id="chatMessages">
 			    </List>

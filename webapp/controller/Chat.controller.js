@@ -13,6 +13,7 @@ sap.ui.define([
 		},
 
 		_oSocket: null, // WebSocket
+		_sAuthKey: "",
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -24,6 +25,14 @@ sap.ui.define([
 		},
 		
 		onMatched: function (oEvent) {
+			
+			if (this.Storage["auth"]) {
+				this._sAuthKey = this.Storage["auth"];
+			} else {
+				this.navTop();
+				return;
+			}
+			
 			this.socketConnect();
 		},
 		
@@ -73,7 +82,7 @@ sap.ui.define([
 			switch (mainCmd) {
 				case "INIT":
 					this.sendMessage("LEVEL 3");
-					this.sendMessage("CONNECT READONLY #HeyAirin Test App");
+					this.sendMessage("CONNECT " + this._sAuthKey + " #HeyAirin Test App");
 					break;
 					
 				case "AUTH":
@@ -84,8 +93,11 @@ sap.ui.define([
 							break;
 							
 						case "FAIL":
+							this.showError("System error: " + fulltext);
+							break;
+							
 						case "BANNED":
-							// TODO: Process this
+							this.showError("Auth error: " + fulltext, "Authentication error", this.navTop.bind(this));
 							break;
 					}
 					break;
@@ -94,6 +106,15 @@ sap.ui.define([
 					this.sendMessage("SUS");
 					break;
 			}
+		},
+		
+		processMessage: function (commands, fulltext) {
+			
+		},
+		
+		onNavBack: function() {
+			this.socketDisconnect();
+			this.navTop();
 		}
 		
 	});
