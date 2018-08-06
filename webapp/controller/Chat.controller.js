@@ -120,6 +120,7 @@ sap.ui.define([
 			var listItem = new sap.m.StandardListItem({
 				title: commands[3],
 				description: fulltext,
+				info: this.formatDate(+commands[2]).time,
 				adaptTitleSize: false
 			});
 			

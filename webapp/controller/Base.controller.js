@@ -97,6 +97,19 @@ sap.ui.define([
 		        s += ltr[this.rangeRand(0, 25)];
 		    }
 		    return s;
+		},
+		
+		formatDate: function(iTimestamp) {
+			var stamp = new Date(+iTimestamp * 1000),
+				time  = ((stamp.getHours() < 10) ? "0" : "") + stamp.getHours() + ":" +
+						((stamp.getMinutes() < 10) ? "0" : "") + stamp.getMinutes() + ":" +
+						((stamp.getSeconds() < 10) ? "0" : "") + stamp.getSeconds(),
+						
+				date  = ((stamp.getDate() < 10) ? "0" : "") + stamp.getDate() + ":" +
+						((stamp.getMonth() + 1 < 10) ? "0" : "") + (stamp.getMonth() + 1) + ":" +
+						stamp.getFullYear();
+						
+				return {"time":time, "date":date};
 		}
 	});
 });
