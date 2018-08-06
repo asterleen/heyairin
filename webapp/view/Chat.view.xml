@@ -7,9 +7,8 @@
 			    </List>
 			    <Toolbar width="100%" id="__toolbar1">
 			        <content>
-			            <Input width="100%" id="__input0"/>
-			            <Button text="Button" width="100px" id="__button1"/>
-			            
+			            <Input width="100%" id="messageText" submit="onMessageSubmit" />
+			            <Button text="Button" width="100px" id="__button1" />
 			        </content>
 			    </Toolbar>
 			</content>

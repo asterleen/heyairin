@@ -10,7 +10,7 @@ sap.ui.define([
 				sHash = window.location.hash.substring(1);
 			
 			if (sHash.startsWith("auth:")) {
-				var sAuthKey = sHash.substring(6);
+				var sAuthKey = sHash.substring(5);
 				
 				if (sAuthKey) {
 					this.Storage["auth"] = sAuthKey;

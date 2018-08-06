@@ -14,6 +14,7 @@ sap.ui.define([
 
 		_oSocket: null, // WebSocket
 		_sAuthKey: "",
+		_sLastMessageKey: "",
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -57,7 +58,7 @@ sap.ui.define([
 			}
 		},
 		
-		sendMessage: function (message) {
+		sendCommand: function (message) {
 			this.log("Send: " + message);
 			if (this._oSocket) {
 				this._oSocket.send(message);
@@ -81,21 +82,18 @@ sap.ui.define([
 			
 			switch (mainCmd) {
 				case "INIT":
-					this.sendMessage("LEVEL 3");
-					this.sendMessage("CONNECT " + this._sAuthKey + " #HeyAirin Test App");
+					this.sendCommand("LEVEL 3");
+					this.sendCommand("CONNECT " + this._sAuthKey + " #HeyAirin Test App");
 					break;
 					
 				case "AUTH":
 					switch (commands[1]) {
 						case "OK":
 						case "READONLY":
-							this.sendMessage("LOG 20");
+							this.sendCommand("LOG 20");
 							break;
 							
 						case "FAIL":
-							this.showError("System error: " + fulltext);
-							break;
-							
 						case "BANNED":
 							this.showError("Auth error: " + fulltext, "Authentication error", this.navTop.bind(this));
 							break;
@@ -103,14 +101,39 @@ sap.ui.define([
 					break;
 					
 				case "NUS":
-					this.sendMessage("SUS");
+					this.sendCommand("SUS");
+					break;
+					
+				case "FAIL":
+					this.showError("System error: " + fulltext);
+					break;
+					
+				case "CONTENT":
+					this.processMessage(commands, fulltext);
 					break;
 			}
 		},
 		
+		// CONTENT 0 1533558532 Anonyamous 50f436 null #asdasdasd azaza ololoepepe pysch pysch
+		//    0    1      2          3        4     5               6 [fulltext]
 		processMessage: function (commands, fulltext) {
+			var listItem = new sap.m.StandardListItem({
+				title: commands[3],
+				description: fulltext,
+				adaptTitleSize: false
+			});
 			
+			this.byId("chatMessages").addItem(listItem);
 		},
+		
+		sendMessage: function (sMessage) {
+			this._sLastMessageKey = this.randWord(20);
+			this.sendCommand("CONTENT " + this._sLastMessageKey + " #" + sMessage);
+		},
+		
+		onMessageSubmit: function (oEvent) {
+			this.sendMessage(oEvent.getSource().getValue());
+		}, 
 		
 		onNavBack: function() {
 			this.socketDisconnect();

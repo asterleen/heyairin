@@ -83,6 +83,20 @@ sap.ui.define([
 					this.Logger.info(message);
 					break;
 			}
+		},
+		
+		rangeRand: function (iMin, iMax) {
+			return Math.floor(Math.random() * (iMax - iMin + 1) + iMin);
+		},
+		
+		randWord: function(iLength) {
+			var s = "",
+		    	ltr = "qwertyuiopasdfghjklzxcvbnm";
+		    	
+		    while (s.length < (iLength || 64)) {
+		        s += ltr[this.rangeRand(0, 25)];
+		    }
+		    return s;
 		}
 	});
 });
