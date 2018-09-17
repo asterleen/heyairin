@@ -23,6 +23,12 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			this.getRouter().getRoute("Chat").attachMatched(this.onMatched.bind(this));
+			
+			var oPage = this.byId("chatPage");
+			
+			sap.ui.core.ResizeHandler.register(oPage, function() {
+				this.sizeScrollContainer();
+			}.bind(this));
 		},
 		
 		onMatched: function (oEvent) {
@@ -139,6 +145,16 @@ sap.ui.define([
 		onNavBack: function() {
 			this.socketDisconnect();
 			this.navTop();
+		},
+		
+		sizeScrollContainer: function() {
+			var panelHeight = this.byId("chatMessagePanel").$().height(),
+				headerHeight = $("header[id=*chatPage*intHeader]").height(),
+				winHeight = $(window).height();
+			
+			console.log("Panel", panelHeight, "Header", headerHeight, "Window", winHeight);
+			
+			this.byId("chatContainer").setHeight((winHeight - (panelHeight + headerHeight)) + "px");
 		}
 		
 	});

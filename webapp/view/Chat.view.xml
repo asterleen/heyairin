@@ -1,17 +1,19 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="HeyAirin.controller.Chat">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="HeyAirin.controller.Chat">
 	<App>
 		<pages>
-			<Page title="{i18n>Chat}" navButtonPress="onNavBack" showNavButton="true" >
-			<content>
-			    <List noDataText="{i18n>noMessages}" id="chatMessages">
-			    </List>
-			    <Toolbar width="100%" id="__toolbar1">
-			        <content>
-			            <Input width="100%" id="messageText" submit="onMessageSubmit" />
-			            <Button text="Button" width="100px" id="__button1" />
-			        </content>
-			    </Toolbar>
-			</content>
+			<Page title="{i18n>Chat}" navButtonPress="onNavBack" showNavButton="true" id="chatPage">
+				<content>
+					<ScrollContainer height="auto" horizontal="false" vertical="true" id="chatContainer">
+						<List noDataText="{i18n>noMessages}" id="chatMessages"></List>
+					</ScrollContainer>
+					<Toolbar width="100%" id="chatMessagePanel">
+						<content>
+							<Input width="100%" id="messageText" submit="onMessageSubmit"/>
+							<Button text="Button" width="100px" id="__button1"/>
+						</content>
+					</Toolbar>
+				</content>
 			</Page>
 		</pages>
 	</App>
