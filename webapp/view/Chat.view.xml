@@ -7,7 +7,7 @@
 					<ScrollContainer height="auto" horizontal="false" vertical="true" id="chatContainer">
 						<List noDataText="{i18n>noMessages}" id="chatMessages"></List>
 					</ScrollContainer>
-					<Toolbar width="100%" id="chatMessagePanel">
+					<Toolbar width="100%" id="chatMessagePanel" class="chat-panel">
 						<content>
 							<Input width="100%" id="messageText" submit="onMessageSubmit"/>
 							<Button text="Button" width="100px" id="__button1"/>

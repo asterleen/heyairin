@@ -148,13 +148,9 @@ sap.ui.define([
 		},
 		
 		sizeScrollContainer: function() {
-			var panelHeight = this.byId("chatMessagePanel").$().height(),
-				headerHeight = $("header[id=*chatPage*intHeader]").height(),
-				winHeight = $(window).height();
+			var oChatPanel = this.byId("chatMessagePanel");
 			
-			console.log("Panel", panelHeight, "Header", headerHeight, "Window", winHeight);
-			
-			this.byId("chatContainer").setHeight((winHeight - (panelHeight + headerHeight)) + "px");
+			oChatPanel.$().width(oChatPanel.$().parent().width());
 		}
 		
 	});

@@ -1,1 +1,7 @@
 /* Enter your custom styles here */
+
+.chat-panel {
+	position: fixed;
+	bottom: 0;
+	width: auto;
+}
