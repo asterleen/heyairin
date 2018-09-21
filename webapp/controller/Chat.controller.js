@@ -114,7 +114,8 @@ sap.ui.define([
 					this.showError("System error: " + fulltext);
 					break;
 					
-				case "CONTENT":
+				case "CONTENT": // a single message while chatting
+				case "LOGCON":  // a single message after a LOG command
 					this.processMessage(commands, fulltext);
 					break;
 			}
