@@ -120,14 +120,16 @@ sap.ui.define([
 			}
 		},
 		
-		// CONTENT 0 1533558532 Anonyamous 50f436 null #asdasdasd azaza ololoepepe pysch pysch
+		// CONTENT 1337 1533558532 Anonyamous 50f436 null #asdasdasd azaza ololoepepe pysch pysch
 		//    0    1      2          3        4     5               6 [fulltext]
 		processMessage: function (commands, fulltext) {
-			var listItem = new sap.m.StandardListItem({
-				title: commands[3],
-				description: fulltext,
-				info: this.formatDate(+commands[2]).time,
-				adaptTitleSize: false
+			var listItem = new sap.m.FeedListItem({
+				senderActive: false,
+				showIcon: false,
+				sender: commands[3],
+				info: ">>" + commands[1],
+				text: fulltext,
+				timestamp: this.formatDate(+commands[2]).time
 			});
 			
 			this.byId("chatMessages").addItem(listItem);
