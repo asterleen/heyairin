@@ -4,7 +4,8 @@
 		<pages>
 			<Page title="{i18n>Chat}" navButtonPress="onNavBack" showNavButton="true" id="chatPage">
 				<content>
-					<ScrollContainer height="auto" horizontal="false" vertical="true" id="chatContainer">
+					<ScrollContainer height="auto" horizontal="false" vertical="true" id="chatContainer"
+						class="chat-messages-container">
 						<List noDataText="{i18n>noMessages}" id="chatMessages"></List>
 					</ScrollContainer>
 					<Toolbar class="chat-spacer"></Toolbar>

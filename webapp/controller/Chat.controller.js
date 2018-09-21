@@ -125,15 +125,23 @@ sap.ui.define([
 		//    0    1      2          3        4     5               6 [fulltext]
 		processMessage: function (commands, fulltext) {
 			var listItem = new sap.m.FeedListItem({
-				senderActive: false,
-				showIcon: false,
-				sender: commands[3],
-				info: ">>" + commands[1],
-				text: fulltext,
-				timestamp: this.formatDate(+commands[2]).time
-			});
+					senderActive: false,
+					showIcon: false,
+					sender: commands[3],
+					info: ">>" + commands[1],
+					text: fulltext,
+					timestamp: this.formatDate(+commands[2]).time
+				}),
+				chatMessages = this.byId("chatMessages"),
+				chatContainer = this.byId("chatContainer");
+				
+			chatMessages.addItem(listItem);
 			
-			this.byId("chatMessages").addItem(listItem);
+			chatContainer.scrollTo({y:9999});
+			
+			// $(document).scrollTop($(document).height()-$(window).height());
+			
+			
 		},
 		
 		sendMessage: function (sMessage) {
@@ -151,9 +159,13 @@ sap.ui.define([
 		},
 		
 		sizeScrollContainer: function() {
-			var oChatPanel = this.byId("chatMessagePanel");
+			var
+				oChatPage = this.byId("chatPage"),
+				oChatPanel = this.byId("chatMessagePanel"),
+				oChatContainer = this.byId("chatContainer");
 			
 			oChatPanel.$().width(oChatPanel.$().parent().width());
+			oChatContainer.setHeight((oChatPage.$().height() - 100) + "px");
 		}
 		
 	});
