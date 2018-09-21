@@ -29,7 +29,10 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_belize"]
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -39,13 +42,9 @@
 		"dependencies": {
 			"minUI5Version": "1.30.0",
 			"libs": {
-				"sap.ui.core": {},
 				"sap.m": {},
-				"sap.ui.layout": {},
-				"sap.ushell": {},
-				"sap.collaboration": {},
-				"sap.ui.comp": {},
-				"sap.uxap": {}
+				"sap.ui.core": {},
+				"sap.ui.layout": {}
 			}
 		},
 		"contentDensities": {
@@ -61,9 +60,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"targets": {
@@ -93,19 +94,24 @@
 				},
 				"async": true
 			},
-			"routes": [{
-				"name": "Launcher",
-				"pattern": "",
-				"titleTarget": "",
-				"greedy": false,
-				"target": "Launcher"
-			}, {
-				"name": "Chat",
-				"pattern": "Chat",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["Chat"]
-			}]
+			"routes": [
+				{
+					"name": "Launcher",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "Launcher"
+				},
+				{
+					"name": "Chat",
+					"pattern": "Chat",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Chat"
+					]
+				}
+			]
 		}
 	}
 }
