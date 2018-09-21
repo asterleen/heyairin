@@ -118,11 +118,17 @@ sap.ui.define([
 				case "LOGCON":  // a single message after a LOG command
 					this.processMessage(commands, fulltext);
 					break;
+					
+				case "CONREC":
+					if (commands[1] === this._sLastMessageKey) {
+						this.byId("messageText").setValue("");
+					}
+					break;
 			}
 		},
 		
 		// CONTENT 1337 1533558532 Anonyamous 50f436 null #asdasdasd azaza ololoepepe pysch pysch
-		//    0    1      2          3        4     5               6 [fulltext]
+		//    0      1      2          3        4     5               6 [fulltext]
 		processMessage: function (commands, fulltext) {
 			var listItem = new sap.m.FeedListItem({
 					senderActive: false,
@@ -137,11 +143,7 @@ sap.ui.define([
 				
 			chatMessages.addItem(listItem);
 			
-			chatContainer.scrollTo({y:9999});
-			
-			// $(document).scrollTop($(document).height()-$(window).height());
-			
-			
+			setTimeout(function() {chatContainer.scrollToElement(listItem); }, 100);
 		},
 		
 		sendMessage: function (sMessage) {
@@ -165,7 +167,7 @@ sap.ui.define([
 				oChatContainer = this.byId("chatContainer");
 			
 			oChatPanel.$().width(oChatPanel.$().parent().width());
-			oChatContainer.setHeight((oChatPage.$().height() - 100) + "px");
+			oChatContainer.setHeight((oChatPage.$().height() - 96) + "px");
 		}
 		
 	});
