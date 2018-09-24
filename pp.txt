@@ -1,0 +1,26 @@
+	    ____  _____________________  __    _____________   __
+	   /   | / ___/_  __/ ____/ __ \/ /   / ____/ ____/ | / /
+	  / /| | \__ \ / / / __/ / /_/ / /   / __/ / __/ /  |/ / 
+	 / ___ |___/ // / / /___/ _, _/ /___/ /___/ /___/ /|  /  
+	/_/  |_/____//_/ /_____/_/ |_/_____/_____/_____/_/ |_/  
+	                https://asterleen.com
+
+                ~ Hey, Airin! Privacy Policy~
+    Facebook made us to write this file. Some things you
+should know about the HeyAirin web service and its source code.
+
+    Okay, when you're logging in using Facebook or VK, we save
+your public ID and first name. That's all, we don't even store
+the access_token of your SNS so we don't have any control on
+your accounts.
+
+    When you're logging in we also store a unique auth key
+that is directly associated with you public SNS ID but 
+cannot be used to disclose it in any form excepting illegal
+use of Airin and HeyAirin code.
+
+   We aren't responsible for any leaks of public ID and name
+according to the GNU GPL license. Don't even ask us.
+
+                                 Sincerely yours, Asterleen.
+                                   https://asterleen.com
