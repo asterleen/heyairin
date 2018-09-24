@@ -77,7 +77,20 @@ sap.ui.define([
 		},
 		
 		onSocketClose: function (oEvent) {
-			this.log("Socket is closed: " + oEvent.code);
+			
+			this.log("Socket is closed with code " + oEvent.code);
+			
+			switch (oEvent.code) {
+				case 1000:
+				case 1001:
+					// Socket has closed normally, no reaction required
+					break;
+				
+				default:
+					this.showError("Socket error #" + oEvent.code, "Socket error");
+					break;
+			}
+			
 			this._oSocket = null;
 		},
 		
