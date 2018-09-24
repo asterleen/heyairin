@@ -155,6 +155,10 @@ sap.ui.define([
 			this.sendMessage(oEvent.getSource().getValue());
 		}, 
 		
+		onMessageButtonPress: function(oEvent) {
+			this.sendMessage(this.byId("messageText").getValue());	
+		},
+		
 		onNavBack: function() {
 			this.socketDisconnect();
 			this.navTop();

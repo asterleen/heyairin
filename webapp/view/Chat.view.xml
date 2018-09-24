@@ -12,7 +12,7 @@
 					<Toolbar width="100%" id="chatMessagePanel" class="chat-panel">
 						<content>
 							<Input width="100%" id="messageText" submit="onMessageSubmit"/>
-							<Button text="{i18n>send}" width="100px" id="chatSendButton"/>
+							<Button text="{i18n>send}" width="100px" id="chatSendButton" press="onMessageButtonPress"/>
 						</content>
 					</Toolbar>
 				</content>
