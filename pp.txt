@@ -1,9 +1,9 @@
-	    ____  _____________________  __    _____________   __
-	   /   | / ___/_  __/ ____/ __ \/ /   / ____/ ____/ | / /
-	  / /| | \__ \ / / / __/ / /_/ / /   / __/ / __/ /  |/ / 
-	 / ___ |___/ // / / /___/ _, _/ /___/ /___/ /___/ /|  /  
-	/_/  |_/____//_/ /_____/_/ |_/_____/_____/_____/_/ |_/  
-	                https://asterleen.com
+    ____  _____________________  __    _____________   __
+   /   | / ___/_  __/ ____/ __ \/ /   / ____/ ____/ | / /
+  / /| | \__ \ / / / __/ / /_/ / /   / __/ / __/ /  |/ / 
+ / ___ |___/ // / / /___/ _, _/ /___/ /___/ /___/ /|  /  
+/_/  |_/____//_/ /_____/_/ |_/_____/_____/_____/_/ |_/  
+	           https://asterleen.com
 
                 ~ Hey, Airin! Privacy Policy~
     Facebook made us to write this file. Some things you
@@ -23,4 +23,3 @@ use of Airin and HeyAirin code.
 according to the GNU GPL license. Don't even ask us.
 
                                  Sincerely yours, Asterleen.
-                                   https://asterleen.com
